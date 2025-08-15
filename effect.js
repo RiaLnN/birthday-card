@@ -65,7 +65,7 @@ $('document').ready(function(){
 
 	$('#bannar_coming').click(function(){ 
 		const container = $('#birthday-container');
-		const text = "З Днем Народженням!";
+		const text = "З Днем Народження!";
 		container.html(""); // очищаем контейнер перед появлением
 
 		text.split('').forEach((char, index) => {
