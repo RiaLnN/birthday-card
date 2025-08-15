@@ -173,7 +173,7 @@ body {
     opacity: 0;
     transform: translateY(-50px); /* падает чуть меньше, чтобы не уходил вверх за экран */
     animation: drop 0.6s forwards;
-
+	white-space: nowrap;
 }
 
 .birthday-text-space {
@@ -197,24 +197,21 @@ body {
     text-align: center;
     z-index: 2;
     padding-top: 20px;
-    
+    white-space: nowrap;
     /* анимация покачивания */
     animation: sway 3s ease-in-out infinite alternate;
 }
 @media (max-width: 768px) {
     .birthday-text-letter {
-        font-size: 4em; /* уменьшаем буквы */
+        font-size: 2.4em; /* уменьшаем буквы */
     }
     .birthday-text-space {
-        width: 2em;
+        width: 1em;
     }
     .cake {
         transform: scale(0.7); /* уменьшаем торт */
     }
-    .message p {
-        font-size: 14px;
-        line-height: 1.3em;
-    }
+    
     .balloon-border {
         height: auto;
     }
@@ -226,6 +223,13 @@ body {
     }
     .bulb-holder {
         margin-bottom: 5px;
+    }
+	.buttons-container {
+        gap: 6px;
+    }
+    .buttons-container .btn {
+        font-size: 14px;
+        padding: 6px 10px;
     }
 }
 /* Определяем покачивание влево-вправо */
@@ -1027,6 +1031,31 @@ audio {
 	text-shadow: 5px 5px 5px #FFF;
 	display: none;
 }
+@media (max-width: 768px) {
+    .balloons {
+        width: 60px;           /* уменьшаем ширину */
+        height: 110px;         /* уменьшаем высоту */
+        background-size: 60px 110px; /* подгоняем размер картинки */
+    }
+
+    .balloons h2 {
+        font-size: 24px;  /* уменьшаем текст внутри шаров */
+        text-shadow: 2px 2px 2px #FFF; /* делаем тень меньше */
+    }
+}
+
+/* Для совсем маленьких экранов */
+@media (max-width: 480px) {
+    .balloons {
+        width: 50px;
+        height: 92px;
+        background-size: 50px 92px;
+    }
+
+    .balloons h2 {
+        font-size: 20px;
+    }
+}
 #b1,#b11 {
 	background-image: url('b1.png');
 }
@@ -1200,17 +1229,29 @@ audio {
 	margin-top: 300px;
 }
 .message {
-	margin-top: 200px;
-	display: none;
+    margin-top: 200px;
+    display: none;
+    padding: 0 10px; /* добавляем отступы по бокам, чтобы текст не прилипал к краю */
 }
+
 .message p {
-	font-family: 'Signika', sans-serif;
-	font-size: 30px;
-	text-transform: uppercase;
-	color: #C4515C;
-	text-shadow: 2px 2px 2px #FFF;
-	display: none;
-	font-weight: bold;
+    font-family: 'Signika', sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #C4515C;
+    text-shadow: 2px 2px 2px #FFF;
+    display: none;
+    font-weight: bold;
+    word-wrap: break-word; /* перенос длинных слов */
+    overflow-wrap: break-word; /* современный способ переноса */
+    text-align: center; /* выравнивание по центру */
+}
+@media (max-width: 768px) {
+    .message p {
+        font-size: 20px;   /* уменьшаем размер текста */
+        line-height: 1.4em;
+        padding: 0 5px;
+    }
 }
 
 .btn-primary {
@@ -1266,15 +1307,6 @@ audio {
     white-space: nowrap; /* текст не переносится */
 }
 
-@media (max-width: 768px) {
-    .buttons-container {
-        gap: 6px;
-    }
-    .buttons-container .btn {
-        font-size: 14px;
-        padding: 6px 10px;
-    }
-}
 
 
 
